@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/welcome', function (){
+Route::get('/hello', function (){
    return "Hello world";
 });
 
@@ -27,4 +27,15 @@ Route::get('url', function (){
 
 Route::get('welcome/{user}/{id}', function ($user, $id) {
     return 'Welcome ' . $user . ', your ID is: ' . $id;
+});
+
+Route::get('welcome/{user?}', function ($user = null) {
+    $messenge = 'Welcome ';
+    if($user === null){
+        $messenge .= 'anonymous';
+    }
+    else{
+        $messenge .= $user;
+    }
+    return $messenge;
 });
