@@ -42,3 +42,14 @@ Route::get('welcome/{user?}', function ($user = null) {
     }
     return $messenge;
 });
+
+Route::get('url/{id}/profile', [
+    'as' => 'profile',
+    function($id){
+        $url = route('profile', [
+            'id' => $id
+        ]);
+        return "Retrieving profile in $url";
+    }
+]);
+
