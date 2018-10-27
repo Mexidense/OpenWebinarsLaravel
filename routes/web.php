@@ -18,3 +18,9 @@ Route::get('/', function () {
 Route::get('/welcome', function (){
    return "Hello world";
 });
+
+Route::get('url', function (){
+    $url = url('url');
+
+    return "You are in " . $url;
+});
