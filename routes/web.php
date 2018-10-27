@@ -25,6 +25,9 @@ Route::get('url', function (){
     return "You are in " . $url;
 });
 
+//Adding a new pattern for id of type integer
+Route::pattern('id', '\d+');
+
 Route::get('welcome/{user}/{id}', function ($user, $id) {
     return 'Welcome ' . $user . ', your ID is: ' . $id;
 });
