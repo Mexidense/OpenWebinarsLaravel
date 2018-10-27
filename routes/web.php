@@ -24,3 +24,7 @@ Route::get('url', function (){
 
     return "You are in " . $url;
 });
+
+Route::get('welcome/{user}/{id}', function ($user, $id) {
+    return 'Welcome ' . $user . ', your ID is: ' . $id;
+});
