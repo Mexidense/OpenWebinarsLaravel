@@ -49,15 +49,23 @@
 //        return "Retrieving profile in $url";
 //    }
 //]);
+//
+//Route::group(['prefix' => 'user'], function () {
+//    Route::get('/', function(){
+//        return 'This is route: /user';
+//    });
+//    Route::get('profile', function(){
+//        return 'This is route: user/profile';
+//    });
+//});
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('post/{id}', [
+    'uses' => 'PostController@Show'
+]);
 
-Route::group(['prefix' => 'user'], function () {
-    Route::get('/', function(){
-        return 'This is route: /user';
-    });
-    Route::get('profile', function(){
-        return 'This is route: user/profile';
-    });
-});
+Route::post('post/store',[
+   'middleware' => 'auth',
+   'uses' => 'PostController@store'
+]);
