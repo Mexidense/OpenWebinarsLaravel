@@ -52,4 +52,3 @@ Route::get('url/{id}/profile', [
         return "Retrieving profile in $url";
     }
 ]);
-
