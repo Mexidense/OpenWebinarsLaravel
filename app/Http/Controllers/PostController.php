@@ -3,18 +3,32 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Validator;
 
 class PostController extends Controller
 {
-    protected $injectionController;
-
-    public function __construct(InjectionController $injectionController)
+    public function __construct()
     {
-        $this->injectionController = $injectionController;
+
     }
 
     public function show($id){
-        $message = $this->injectionController->showMessage();
-        return $message;
+        return 'Post is: ' . $id;
+    }
+
+    public function store(Request $request){
+        $validator = Validator::make($request->all(),[
+            'title' => 'required|unique:posts|max:255',
+            'body' => 'required',
+        ]);
+
+        if($validator->fails()){
+            return redirect('post/create')
+                ->withErrors($validator)
+                ->withInput();
+
+        }
+        //store post
+
     }
 }
