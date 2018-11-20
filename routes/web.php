@@ -66,6 +66,5 @@ Route::get('post/{id}', [
 ]);
 
 Route::post('post/store',[
-   'middleware' => 'auth',
    'uses' => 'PostController@store'
 ]);

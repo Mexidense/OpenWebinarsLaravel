@@ -6,12 +6,15 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
-    public function __construct()
+    protected $injectionController;
+
+    public function __construct(InjectionController $injectionController)
     {
-        $this->middleware('auth');
+        $this->injectionController = $injectionController;
     }
 
     public function show($id){
-        return "Showing post: " . $id;
+        $message = $this->injectionController->showMessage();
+        return $message;
     }
 }
