@@ -70,5 +70,7 @@ Route::get('post/{id}', [
 ]);
 
 Route::post('post/store',[
-   'uses' => 'PostController@store'
+   'middleware' => 'auth',
+   'before' => 'csrf',
+   'uses' => 'PostController@store',
 ]);

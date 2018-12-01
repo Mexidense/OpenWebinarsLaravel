@@ -31,6 +31,8 @@ class PostController extends Controller
 
         }
         //store post
+        $post = Post::create($request->except('csrf'));
+        return $post->toJson();
 
     }
 
