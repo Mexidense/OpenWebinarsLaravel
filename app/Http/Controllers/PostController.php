@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Validator;
+use App\Post;
 
 class PostController extends Controller
 {
@@ -30,5 +31,10 @@ class PostController extends Controller
         }
         //store post
 
+    }
+
+    public function index(){
+        $posts = Post::all();
+        return $posts->toJson();
     }
 }

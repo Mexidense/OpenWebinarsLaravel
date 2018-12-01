@@ -58,9 +58,12 @@
 //        return 'This is route: user/profile';
 //    });
 //});
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
+
+Route::get('/', 'PostController@index');
+
 Route::get('post/{id}', [
     'uses' => 'PostController@Show'
 ]);
