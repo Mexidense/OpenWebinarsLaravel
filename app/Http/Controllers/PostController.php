@@ -40,4 +40,9 @@ class PostController extends Controller
         $posts = Post::all();
         return $posts->toJson();
     }
+
+    public function destroy($id){
+        Post::destroy($id);
+        return 1;
+    }
 }

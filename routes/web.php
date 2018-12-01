@@ -74,3 +74,8 @@ Route::post('post/store',[
    'before' => 'csrf',
    'uses' => 'PostController@store',
 ]);
+
+Route::get('post/delete/{id}', [
+    'middleware' => 'auth',
+    'uses' => 'PostController@destroy'
+]);
