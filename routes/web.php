@@ -64,6 +64,7 @@
 
 Route::get('/', 'PostController@index');
 
+Route::pattern('id', '\d+');
 Route::get('post/{id}', [
     'uses' => 'PostController@Show'
 ]);
