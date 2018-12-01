@@ -42,7 +42,6 @@ class PostController extends Controller
     }
 
     public function destroy($id){
-        Post::destroy($id);
-        return 1;
+        return Post::destroy($id) > 0 ? 'Post deleted' : 'Post didnt delete';
     }
 }
