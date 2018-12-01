@@ -38,7 +38,11 @@ class PostController extends Controller
 
     public function index(){
         $posts = Post::all();
-        return $posts->toJson();
+//        var_dump($post);
+//        die();
+        return view('blog.index')->with([
+            'posts' => $posts,
+        ]);
     }
 
     public function destroy($id){
