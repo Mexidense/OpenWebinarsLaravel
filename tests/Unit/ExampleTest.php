@@ -3,7 +3,6 @@
 namespace Tests\Unit;
 
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ExampleTest extends TestCase
 {
@@ -15,5 +14,9 @@ class ExampleTest extends TestCase
     public function testBasicTest()
     {
         $this->get('/')->assertSee('OpenWebinars Laravel');
+    }
+
+    public function testSinglePostPageExist(){
+        $this->get('/post/1')->assertSee('Content of the post #0');
     }
 }
