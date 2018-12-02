@@ -5,7 +5,7 @@
         <h4>Listado de posts:</h4>
         <ul>
             @foreach($posts as $post)
-                <li>{{ $post->title }}</li>
+                <li><a href="post/{{ $post->id }}">{{ $post->title }}</a></li>
             @endforeach
         </ul>
     @else
