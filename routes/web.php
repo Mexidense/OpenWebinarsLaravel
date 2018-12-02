@@ -19,5 +19,3 @@ Route::get('post/delete/{id}', [
     'middleware' => 'auth',
     'uses' => 'PostController@destroy'
 ]);
-
-
